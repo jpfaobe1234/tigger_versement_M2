@@ -15,8 +15,13 @@ class Client extends CI_Controller
 
 	public function index()
 	{
-		$data['data'] = $this->crud->get_records('client');
-		$this->load->view('client/list', $data);
+		if($this->session->userdata['email'] != null) {
+			$data['data'] = $this->crud->get_records('client');
+			$this->load->view('client/list', $data);		
+		}  else{
+			redirect('/');
+		}
+		
 	}
 
 

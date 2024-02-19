@@ -15,8 +15,12 @@ class Audit extends CI_Controller
 
 	public function index()
 	{
-		$data['data'] = $this->crud->get_records('audit');
-		$this->load->view('audit/list', $data);
+		if($this->session->userdata['email'] != null) {
+			$data['data'] = $this->crud->get_records('audit');
+			$this->load->view('audit/list', $data);			
+		}  else{
+			redirect('/');
+		}
 	}
 
 

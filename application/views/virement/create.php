@@ -39,11 +39,6 @@
             </div>
   
             <div class="form-group">
-              <label>Utiliusateur</label>
-              <input text="text" class="form-control" name="utilisateur">
-            </div>
-  
-            <div class="form-group">
               <button type="submit" class="btn btn-success"> <i class="fas fa-check"></i> Ajouter </button>
             </div>
   

@@ -15,8 +15,13 @@ class Virement extends CI_Controller
 
 	public function index()
 	{
-		$data['data'] = $this->crud->get_records('virement');
-		$this->load->view('virement/list', $data);
+		if($this->session->userdata['email'] != null) {
+			$data['data'] = $this->crud->get_records('virement');
+			$this->load->view('virement/list', $data);		
+		}  else{
+			redirect('/');
+		}
+		
 	}
 
 
@@ -30,7 +35,7 @@ class Virement extends CI_Controller
 	{
 		$data['id_client'] = $this->input->post('id_client');
 		$data['montant'] = $this->input->post('montant');
-		$data['utilisateur'] = $this->input->post('utilisateur');
+		$data['utilisateur'] = $this->session->userdata['email'];
 
 		$this->crud->insert('virement', $data);
 		$this->session->set_flashdata('message', '<div class="alert alert-success">Ajout Resussit !!!</div>'); 
@@ -47,7 +52,7 @@ class Virement extends CI_Controller
 	{
 		$data['id_client'] = $this->input->post('id_client');
 		$data['montant'] = $this->input->post('montant');
-		$data['utilisateur'] = $this->input->post('utilisateur');
+		$data['utilisateur'] = $this->session->userdata['email'];
 
 		$this->crud->update('virement', $data, ['id_vir' =>$id]);
 		$this->session->set_flashdata('message', '<div class="alert alert-success">Modification reussit !!!</div>');

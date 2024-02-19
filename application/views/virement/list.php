@@ -33,7 +33,9 @@
 
           <tbody>
 
-            <?php $i = 1; foreach ($data as $post) { ?>
+            <?php
+              $data = $this->db->order_by('id_vir', 'DESC')->get('virement')->result();
+               $i = 1; foreach ($data as $post) { ?>
 
               <tr>
                 <td><?php echo $post->id_vir; ?></td>

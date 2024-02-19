@@ -36,11 +36,6 @@
                   <label>Montant</label>
                   <input class="form-control" name="montant" value="<?= $data->montant ?>" >
                 </div>
-      
-                <div class="form-group">
-                  <label>Utiliusateur</label>
-                  <input text="text" class="form-control" name="utilisateur" value="<?= $data->utilisateur ?>" >
-                </div>
 
                 <div class="form-group">
                   <button type="submit" class="btn btn-success"> <i class="fas fa-check"></i> Modifier </button>
